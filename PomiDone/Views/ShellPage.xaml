@@ -19,7 +19,7 @@
 
     <winui:NavigationView
         x:Name="navigationView"
-        IsBackButtonVisible="Visible"
+        IsBackButtonVisible="Collapsed"
         IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
         SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
         IsSettingsVisible="True"
@@ -33,8 +33,8 @@
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
             <winui:NavigationViewItem x:Uid="Shell_PomiDone" helpers:NavHelper.NavigateTo="views:PomiDonePage" />
-            <winui:NavigationViewItem x:Uid="Shell_Statistics" helpers:NavHelper.NavigateTo="views:StatisticsPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Chart" helpers:NavHelper.NavigateTo="views:ChartPage" />
+            <!--<winui:NavigationViewItem x:Uid="Shell_Statistics" helpers:NavHelper.NavigateTo="views:StatisticsPage" />
+            <winui:NavigationViewItem x:Uid="Shell_Chart" helpers:NavHelper.NavigateTo="views:ChartPage" />-->
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <ic:EventTriggerBehavior EventName="ItemInvoked">
