@@ -12,14 +12,14 @@ namespace PomiDone.Services
     {
         public void ShowToastNotification(ToastNotification toastNotification)
         {
-            try
-            {
-                ToastNotificationManager.CreateToastNotifier().Show(toastNotification);
-            }
-            catch (Exception)
-            {
-                // TODO WTS: Adding ToastNotification can fail in rare conditions, please handle exceptions as appropriate to your scenario.
-            }
+            //try
+            //{
+            //    ToastNotificationManager.CreateToastNotifier().Show(toastNotification);
+            //}
+            //catch (Exception)
+            //{
+            //    // TODO WTS: Adding ToastNotification can fail in rare conditions, please handle exceptions as appropriate to your scenario.
+            //}
         }
 
         protected override async Task HandleInternalAsync(ToastNotificationActivatedEventArgs args)

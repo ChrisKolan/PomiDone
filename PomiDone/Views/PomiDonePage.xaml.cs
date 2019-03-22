@@ -8,7 +8,11 @@ namespace PomiDone.Views
 {
     public sealed partial class PomiDonePage : Page
     {
-        public PomiDoneViewModel ViewModel { get; } = new PomiDoneViewModel();
+        private static PomiDoneViewModel _viewModel;
+        public PomiDoneViewModel ViewModel
+        {
+            get { return _viewModel ?? (_viewModel = new PomiDoneViewModel()); }
+        }
 
         public PomiDonePage()
         {

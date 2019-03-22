@@ -9,16 +9,16 @@ namespace PomiDone.Services
 {
     public static class FirstRunDisplayService
     {
-        private static bool shown = false;
+        //private static bool shown = false;
 
-        internal static async Task ShowIfAppropriateAsync()
+        internal static void ShowIfAppropriate()
         {
-            if (SystemInformation.IsFirstRun && !shown)
-            {
-                shown = true;
-                var dialog = new FirstRunDialog();
-                await dialog.ShowAsync();
-            }
+            //if (SystemInformation.IsFirstRun && !shown)
+            //{
+            //    shown = true;
+            //    var dialog = new FirstRunDialog();
+            //    await dialog.ShowAsync();
+            //}
         }
     }
 }

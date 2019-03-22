@@ -69,23 +69,25 @@ namespace PomiDone.Services
 
         private async Task InitializeAsync()
         {
-            await Singleton<BackgroundTaskService>.Instance.RegisterBackgroundTasksAsync();
+            await Singleton<LiveTileService>.Instance.EnableQueueAsync();
             await ThemeSelectorService.InitializeAsync();
+            await StoreTimersService.InitializeAsync();
         }
 
         private async Task StartupAsync()
         {
             await ThemeSelectorService.SetRequestedThemeAsync();
             await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
-            await FirstRunDisplayService.ShowIfAppropriateAsync();
+            Singleton<LiveTileService>.Instance.SampleUpdate();
+            FirstRunDisplayService.ShowIfAppropriate();
             await WhatsNewDisplayService.ShowIfAppropriateAsync();
         }
 
         private IEnumerable<ActivationHandler> GetActivationHandlers()
         {
+            yield return Singleton<LiveTileService>.Instance;
             yield return Singleton<DevCenterNotificationsService>.Instance;
             yield return Singleton<ToastNotificationsService>.Instance;
-            yield return Singleton<BackgroundTaskService>.Instance;
         }
 
         private bool IsInteractive(object args)

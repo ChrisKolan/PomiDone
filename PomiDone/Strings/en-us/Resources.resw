@@ -157,31 +157,31 @@
     <value>Light</value>
     <comment>Light theme text for Settings</comment>
   </data>
-  <data name="Settings_About.Text" xml:space="preserve">    
+  <data name="Settings_About.Text" xml:space="preserve">
     <value>About this application</value>
     <comment>About this application title for Settings</comment>
   </data>
-  <data name="Settings_AboutDescription.Text" xml:space="preserve">    
-    <value>Settings page placeholder text.  Your app description goes here.</value>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>This application uses the pomdoro technique to keep you focused on the task you are working on. Press start button on PomiDone page and be really productive today :)</value>
     <comment>About this application description for Settings</comment>
   </data>
-  <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">    
+  <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">
     <value>Privacy Statement</value>
     <comment>Privacy Statement link content for Settings</comment>
   </data>
-  <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">  
-    <value>https://YourPrivacyUrlGoesHere/</value>
+  <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">
+    <value>https://microsoft-programmierer.de/Daten/_docs/windows_apps_privacy_policy.htm</value>
     <comment>Here is your Privacy Statement url for Settings</comment>
   </data>
-  <data name="Settings_Personalization.Text" xml:space="preserve">   
+  <data name="Settings_Personalization.Text" xml:space="preserve">
     <value>Personalization</value>
     <comment>Personalization text for Settings</comment>
   </data>
-  <data name="ExceptionEnumToBooleanConverterValueMustBeAnEnum" xml:space="preserve">   
+  <data name="ExceptionEnumToBooleanConverterValueMustBeAnEnum" xml:space="preserve">
     <value>value must be an Enum!</value>
     <comment>Value must be an Enum in enum to boolean converter</comment>
   </data>
-  <data name="ExceptionEnumToBooleanConverterParameterMustBeAnEnumName" xml:space="preserve">   
+  <data name="ExceptionEnumToBooleanConverterParameterMustBeAnEnumName" xml:space="preserve">
     <value>parameter must be an Enum name!</value>
     <comment>Parameter must be an Enum name in enum to boolean converter</comment>
   </data>
@@ -225,5 +225,17 @@ Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Ma
   <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
     <value>Ok</value>
     <comment>What's new prompt message primary button text</comment>
+  </data>
+  <data name="Settings_PomodoroTechniqueLink.Content" xml:space="preserve">
+    <value>Pomodoro Technique</value>
+    <comment>Link to the webpage</comment>
+  </data>
+  <data name="Settings_PomodoroTechniqueLink.NavigateUri" xml:space="preserve">
+    <value>https://en.wikipedia.org/wiki/Pomodoro_Technique</value>
+    <comment>Uri</comment>
+  </data>
+  <data name="Settings_Timers.Text" xml:space="preserve">
+    <value>Choose length of work, short and long breaks in minutes</value>
+    <comment>Choose lenght of work and breaks in minutes</comment>
   </data>
 </root>
