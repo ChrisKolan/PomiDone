@@ -19,27 +19,69 @@
                 x:Uid="Settings_Personalization"
                 Style="{ThemeResource SubtitleTextBlockStyle}" />
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <TextBlock
-                    x:Uid="Settings_Timers"
-                    Margin="0,5,0,5"/>
-                <TextBox
-                    x:Uid="Settings_WorkTimer"
-                    Text="{x:Bind ViewModel.SettingsWorkTimer, Mode=TwoWay}"
-                    ToolTipService.ToolTip="Task time in minutes"
-                    Margin="0,5,0,5">
-                </TextBox>
-                <TextBox
-                    x:Uid="Settings_ShortBreakTimer"
-                    Text="{x:Bind ViewModel.SettingsShortBreakTimer, Mode=TwoWay}"
-                    ToolTipService.ToolTip="Short break time in minutes"
-                    Margin="0,5,0,5">
-                </TextBox>
-                <TextBox
-                    x:Uid="Settings_LongBreakTimer"
-                    Text="{x:Bind ViewModel.SettingsLongBreakTimer, Mode=TwoWay}"
-                    ToolTipService.ToolTip="Long break time in minutes"
-                    Margin="0,5,0,5">
-                </TextBox>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="1"  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Task length in minutes:" 
+                            VerticalAlignment="Center"
+                            Margin="0"/>
+                        <TextBox Grid.Column="1"
+                            x:Uid="Settings_WorkTimer"
+                            Text="{x:Bind ViewModel.SettingsWorkTimer, Mode=TwoWay}"
+                            ToolTipService.ToolTip="Task time in minutes"
+                            Margin="0,5,0,5">
+                        </TextBox>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="1"  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Short break length in minutes:" 
+                            VerticalAlignment="Center"
+                            Margin="0"/>
+                        <TextBox Grid.Column="1"
+                            x:Uid="Settings_ShortBreakTimer"
+                            Text="{x:Bind ViewModel.SettingsShortBreakTimer, Mode=TwoWay}"
+                            ToolTipService.ToolTip="Short break time in minutes"
+                            Margin="0,5,0,5">
+                        </TextBox>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="1"  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Long break length in minutes:" 
+                            VerticalAlignment="Center"
+                            Margin="0"/>
+                        <TextBox Grid.Column="1"
+                             x:Uid="Settings_LongBreakTimer"
+                            Text="{x:Bind ViewModel.SettingsLongBreakTimer, Mode=TwoWay}"
+                            ToolTipService.ToolTip="Long break time in minutes"
+                            Margin="0,5,0,5">
+                        </TextBox>
+                    </Grid>
+                </Grid>
                 <Button
                     x:Uid="Settings_StoreTimers"
                     Margin="0,5,0,5"
