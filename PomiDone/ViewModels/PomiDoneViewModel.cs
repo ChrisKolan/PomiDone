@@ -125,12 +125,13 @@ namespace PomiDone.ViewModels
 
         private async void OnTimer(object state)
         {
+            var timerDisplayFormat = @"m\:ss";
             var dispatcher = Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher;
             await dispatcher.RunAsync(
              CoreDispatcherPriority.Normal, () =>
              {
                  // Your UI update code goes here!
-                 TimerTextBlock = _workTimer.ToString(@"m\:ss");
+                 TimerTextBlock = _workTimer.ToString(timerDisplayFormat);
                  WorkTimerTextBlock = _workCounter.ToString();
                  ShortTimerTextBlock = _shortBreakCounter.ToString();
                  LongTimerTextBlock = _longBreakCounter.ToString();
@@ -146,11 +147,11 @@ namespace PomiDone.ViewModels
                  _workTimer -= TimeSpan.FromSeconds(1);
                  ProgressMaximum = _timeSpan * 60;
                  CurrentProgress = _timeSpan * 60 - (int)_workTimer.TotalSeconds;
-                 TimerTextBlock = _workTimer.ToString(@"m\:ss");
+                 TimerTextBlock = _workTimer.ToString(timerDisplayFormat);
                  CurrentTask = _currentTask;
                  if (_workTimer == TimeSpan.Zero)
                  {
-                     TimerTextBlock = _workTimer.ToString(@"m\:ss");
+                     TimerTextBlock = _workTimer.ToString(timerDisplayFormat);
                      _zeroCrossingCounter++;
 
                      if (_zeroCrossingCounter % 2 == 0)

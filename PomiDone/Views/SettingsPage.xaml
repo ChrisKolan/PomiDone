@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     Style="{StaticResource PageStyle}"
     xmlns:helper="using:PomiDone.Helpers"
     xmlns:xaml="using:Windows.UI.Xaml"
@@ -32,7 +33,8 @@
                         <TextBlock Text="Task length in minutes:" 
                             VerticalAlignment="Center"
                             Margin="0"/>
-                        <TextBox Grid.Column="1"
+                        <TextBox extensions:TextBoxMask.Mask="99" Grid.Column="1"
+                            extensions:TextBoxMask.PlaceHolder=" "
                             x:Uid="Settings_WorkTimer"
                             Text="{x:Bind ViewModel.SettingsWorkTimer, Mode=TwoWay}"
                             ToolTipService.ToolTip="Task time in minutes"
@@ -53,7 +55,8 @@
                         <TextBlock Text="Short break length in minutes:" 
                             VerticalAlignment="Center"
                             Margin="0"/>
-                        <TextBox Grid.Column="1"
+                        <TextBox extensions:TextBoxMask.Mask="99" Grid.Column="1"
+                            extensions:TextBoxMask.PlaceHolder=" "
                             x:Uid="Settings_ShortBreakTimer"
                             Text="{x:Bind ViewModel.SettingsShortBreakTimer, Mode=TwoWay}"
                             ToolTipService.ToolTip="Short break time in minutes"
@@ -74,8 +77,9 @@
                         <TextBlock Text="Long break length in minutes:" 
                             VerticalAlignment="Center"
                             Margin="0"/>
-                        <TextBox Grid.Column="1"
-                             x:Uid="Settings_LongBreakTimer"
+                        <TextBox extensions:TextBoxMask.Mask="99" Grid.Column="1"
+                            extensions:TextBoxMask.PlaceHolder=" "
+                            x:Uid="Settings_LongBreakTimer"
                             Text="{x:Bind ViewModel.SettingsLongBreakTimer, Mode=TwoWay}"
                             ToolTipService.ToolTip="Long break time in minutes"
                             Margin="0,5,0,5">

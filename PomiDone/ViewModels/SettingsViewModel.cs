@@ -42,7 +42,11 @@ namespace PomiDone.ViewModels
         {
             get { return _settingsWorkTimer; }
 
-            set { Set(ref _settingsWorkTimer, value); }
+            set
+            {
+                _settingsWorkTimer = Validator(value);
+                OnPropertyChanged(nameof(SettingsWorkTimer));
+            }
         }
 
         private string _settingsShortBreakTimer;
@@ -51,7 +55,11 @@ namespace PomiDone.ViewModels
         {
             get { return _settingsShortBreakTimer; }
 
-            set { Set(ref _settingsShortBreakTimer, value); }
+            set
+            {
+                _settingsShortBreakTimer = Validator(value);
+                OnPropertyChanged(nameof(SettingsShortBreakTimer));
+            }
         }
 
         private string _settingsLongBreakTimer;
@@ -60,7 +68,11 @@ namespace PomiDone.ViewModels
         {
             get { return _settingsLongBreakTimer; }
 
-            set { Set(ref _settingsLongBreakTimer, value); }
+            set
+            {
+                _settingsLongBreakTimer = Validator(value);
+                OnPropertyChanged(nameof(SettingsLongBreakTimer));
+            }
         }
 
         private ICommand _switchThemeCommand;
@@ -120,6 +132,28 @@ namespace PomiDone.ViewModels
             var version = packageId.Version;
 
             return $"{appName} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+        }
+
+        private string Validator(string uiValue)
+        {
+            string property;
+
+            if (string.IsNullOrWhiteSpace(uiValue))
+            {
+                return property = "1";
+            }
+            else if (int.Parse(uiValue) == 0)
+            {
+                return property = "1";
+            }
+            else if (int.Parse(uiValue) >= 60)
+            {
+                return property = "59";
+            }
+            else
+            {
+                return property = uiValue;
+            }
         }
     }
 }
