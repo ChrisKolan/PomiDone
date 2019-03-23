@@ -137,10 +137,12 @@
     <Compile Include="Services\LiveTileService.cs" />
     <Compile Include="Services\LiveTileService.Samples.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\ToastNotificationsService.ShortBreak.cs" />
     <Compile Include="Services\StoreTimersService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="Services\ToastNotificationsService.cs" />
     <Compile Include="Services\ToastNotificationsService.Samples.cs" />
+    <Compile Include="Services\ToastNotificationsService.Task.cs" />
     <Compile Include="Services\WhatsNewDisplayService.cs" />
     <Compile Include="ViewModels\ChartViewModel.cs" />
     <Compile Include="ViewModels\PomiDoneViewModel.cs" />
@@ -246,6 +248,7 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <None Include="PomiDone_TemporaryKey.pfx" />
+    <Compile Include="Services\ToastNotificationsService.LongBreak.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

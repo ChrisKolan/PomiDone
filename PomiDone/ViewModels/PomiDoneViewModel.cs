@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using PomiDone.Core.Helpers;
 using PomiDone.Helpers;
+using PomiDone.Services;
 using Windows.ApplicationModel.ExtendedExecution;
 using Windows.System.Threading;
 using Windows.UI.Core;
+using Windows.UI.Notifications;
 
 namespace PomiDone.ViewModels
 {
@@ -167,6 +171,7 @@ namespace PomiDone.ViewModels
                          _timeSpan = _workTimerTimeSpanInMinutes;
                          CurrentTask = "Task";
                          _currentTaskStored = CurrentTask;
+                         Singleton<ToastNotificationsService>.Instance.ShowToastNotificationTask();
                      }
                      else
                      {
@@ -177,12 +182,14 @@ namespace PomiDone.ViewModels
                              _timeSpan = _longBreakTimerTimeSpanInMinutes;
                              CurrentTask = "Long break";
                              _currentTaskStored = CurrentTask;
+                             Singleton<ToastNotificationsService>.Instance.ShowToastNotificationLongBreak();
                          }
                          else
                          {
                              _timeSpan = _shortBreakTimerTimeSpanInMinutes;
                              CurrentTask = "Short break";
                              _currentTaskStored = CurrentTask;
+                             Singleton<ToastNotificationsService>.Instance.ShowToastNotificationSortBreak();
                          }
                      }
                      _workTimer = TimeSpan.FromMinutes(_timeSpan);
@@ -287,6 +294,30 @@ namespace PomiDone.ViewModels
             _timeSpan = _workTimerTimeSpanInMinutes;
             ProgressMaximum = _timeSpan * 60;
             CurrentTask = "Resetting...";
+        }
+
+        private void ClearNotificationQueue()
+        {
+            var scheduledNotifications = ToastNotificationManager.CreateToastNotifier().GetScheduledToastNotifications();
+
+            foreach (var item in scheduledNotifications)
+            {
+                ToastNotificationManager.CreateToastNotifier().RemoveFromSchedule(item);
+            }
+
+        }
+
+        private void ScheduleNotification(string title, string description)
+        {
+            //var notificationDictionary = new Dictionary<string, string>()
+            //{
+            //    { "{TITLE}", title },
+            //    { "{DESCRIPTION}", description }
+            //};
+
+            //var notificationXML = LoadAndPopulateXMLFile("/Resources/Notification.xml", notificationDictionary);
+            //var toastScheduled = new ScheduledToastNotification(notificationXML, _intervalEnd);
+            //ToastNotificationManager.CreateToastNotifier().AddToSchedule(toastScheduled);
         }
     }
 }
