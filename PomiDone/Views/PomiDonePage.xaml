@@ -74,10 +74,10 @@
                 <Button
                     HorizontalAlignment="Center"
                     Command="{x:Bind ViewModel.ResetClick}"
-                    ToolTipService.ToolTip="Reset"
+                    ToolTipService.ToolTip="Stop and reset"
                     Margin="10">
                     <Viewbox Height="70" Width="250">
-                        <SymbolIcon Symbol="Clear"/>
+                        <SymbolIcon Symbol="Stop"/>
                     </Viewbox>
                 </Button>
             </StackPanel>
