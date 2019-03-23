@@ -1,31 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
 using PomiDone.Core.Helpers;
 using PomiDone.Helpers;
 using PomiDone.Services;
 using Windows.ApplicationModel.ExtendedExecution;
-using Windows.System.Threading;
 using Windows.UI.Core;
-using Windows.UI.Notifications;
 
 namespace PomiDone.ViewModels
 {
     public class PomiDoneViewModel : Observable
     {
-        private const string WorkTimerSettingsKey = "WorkTimerSettingsKey";
-        private const string ShortBreakTimerSettingsKey = "ShortBreakTimerSettingsKey";
-        private const string LongBreakTimerSettingsKey = "LongBreakTimerSettingsKey";
-
         private string _timerTextBlock;
         private string _workTimerTextBlock;
         private string _shortTimerTextBlock;
         private string _longTimerTextBlock;
         private TimeSpan _workTimer;
-        private int _workTimerTimeSpanInMinutes = int.Parse(Services.StoreTimersService.WorkTimer);
-        private int _shortBreakTimerTimeSpanInMinutes = int.Parse(Services.StoreTimersService.ShortBreakTimer);
-        private int _longBreakTimerTimeSpanInMinutes = int.Parse(Services.StoreTimersService.LongBreakTimer);
+        private int _workTimerTimeSpanInMinutes = int.Parse(StoreTimersService.WorkTimer);
+        private int _shortBreakTimerTimeSpanInMinutes = int.Parse(StoreTimersService.ShortBreakTimer);
+        private int _longBreakTimerTimeSpanInMinutes = int.Parse(StoreTimersService.LongBreakTimer);
         private bool _isStarted = false;
         private int _workCounter;
         private int _zeroCrossingCounter;
@@ -47,9 +39,8 @@ namespace PomiDone.ViewModels
             CurrentTask = "Initializing...";
             StartPauseResumeClick = new RelayCommand(StartPauseResumeClickCommand);
             ResetClick = new RelayCommand(ResetClickCommand);
-            _workTimer = TimeSpan.FromMinutes(double.Parse(Services.StoreTimersService.WorkTimer));
+            _workTimer = TimeSpan.FromMinutes(double.Parse(StoreTimersService.WorkTimer));
             _timeSpan = _workTimerTimeSpanInMinutes;
-            ButtonStartPauseResumeContent = "Start";
             StartPauseResumeIcon = "Play";
             ProgressMaximum = _timeSpan * 60;
             BeginExtendedExecution();
@@ -107,13 +98,6 @@ namespace PomiDone.ViewModels
                 _longTimerTextBlock = value;
                 OnPropertyChanged(nameof(LongTimerTextBlock));
             }
-        }
-
-        public string ButtonStartPauseResumeContent
-        {
-            get { return _buttonStartPauseResumeContent; }
-
-            set { Set(ref _buttonStartPauseResumeContent, value); }
         }
 
         public int CurrentProgress
@@ -274,7 +258,6 @@ namespace PomiDone.ViewModels
             _isStarted ^= true;
             if (_isStarted)
             {
-                ButtonStartPauseResumeContent = "Pause";
                 StartPauseResumeIcon = "Pause";
                 if (_currentTaskStored != null)
                     CurrentTask = _currentTaskStored;
@@ -283,7 +266,6 @@ namespace PomiDone.ViewModels
             }
             else
             {
-                ButtonStartPauseResumeContent = "Resume";
                 StartPauseResumeIcon = "Play";
                 CurrentTask = "Pausing...";
             }
@@ -292,7 +274,6 @@ namespace PomiDone.ViewModels
         private void ResetClickCommand()
         {
             _isStarted = false;
-            ButtonStartPauseResumeContent = "Start";
             _workTimer = TimeSpan.FromMinutes(_workTimerTimeSpanInMinutes);
             _workCounter = 0;
             _zeroCrossingCounter = 0;
