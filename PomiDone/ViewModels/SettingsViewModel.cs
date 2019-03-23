@@ -131,7 +131,7 @@ namespace PomiDone.ViewModels
             var packageId = package.Id;
             var version = packageId.Version;
 
-            return $"{appName} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            return $"Version - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
 
         private string Validator(string uiValue)
