@@ -26,7 +26,6 @@ namespace PomiDone.ViewModels
         private int _timeSpan;
         private int _currentProgress;
         private int _progressMaximum;
-        private string _buttonStartPauseResumeContent;
         private ExtendedExecutionSession _session = null;
         private Timer _periodicTimer = null;
         private string _currentTask;
