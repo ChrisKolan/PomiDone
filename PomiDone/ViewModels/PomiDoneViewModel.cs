@@ -39,6 +39,7 @@ namespace PomiDone.ViewModels
         private Timer _periodicTimer = null;
         private string _currentTask;
         private string _currentTaskStored;
+        private string _startPauseResumeIcon;
 
         public PomiDoneViewModel()
         {
@@ -49,12 +50,20 @@ namespace PomiDone.ViewModels
             _workTimer = TimeSpan.FromMinutes(double.Parse(Services.StoreTimersService.WorkTimer));
             _timeSpan = _workTimerTimeSpanInMinutes;
             ButtonStartPauseResumeContent = "Start";
+            StartPauseResumeIcon = "Play";
             ProgressMaximum = _timeSpan * 60;
             BeginExtendedExecution();
         }
 
         public RelayCommand StartPauseResumeClick { get; set; }
         public RelayCommand ResetClick { get; set; }
+
+        public string StartPauseResumeIcon
+        {
+            get { return _startPauseResumeIcon; }
+
+            set { Set(ref _startPauseResumeIcon, value); }
+        }
 
         public string CurrentTask
         {
@@ -141,10 +150,7 @@ namespace PomiDone.ViewModels
                  LongTimerTextBlock = _longBreakCounter.ToString();
                  if (!_isStarted)
                  {
-                     if (CurrentTask == "Pausing..." || CurrentTask == "Press Resume")
-                         CurrentTask = "Press Resume";
-                     else
-                         CurrentTask = "Press Start";
+                     CurrentTask = "Press Play";
                      return;
                  }
 
@@ -269,6 +275,7 @@ namespace PomiDone.ViewModels
             if (_isStarted)
             {
                 ButtonStartPauseResumeContent = "Pause";
+                StartPauseResumeIcon = "Pause";
                 if (_currentTaskStored != null)
                     CurrentTask = _currentTaskStored;
                 else
@@ -277,6 +284,7 @@ namespace PomiDone.ViewModels
             else
             {
                 ButtonStartPauseResumeContent = "Resume";
+                StartPauseResumeIcon = "Play";
                 CurrentTask = "Pausing...";
             }
         }
@@ -294,30 +302,8 @@ namespace PomiDone.ViewModels
             _timeSpan = _workTimerTimeSpanInMinutes;
             ProgressMaximum = _timeSpan * 60;
             CurrentTask = "Resetting...";
-        }
-
-        private void ClearNotificationQueue()
-        {
-            var scheduledNotifications = ToastNotificationManager.CreateToastNotifier().GetScheduledToastNotifications();
-
-            foreach (var item in scheduledNotifications)
-            {
-                ToastNotificationManager.CreateToastNotifier().RemoveFromSchedule(item);
-            }
-
-        }
-
-        private void ScheduleNotification(string title, string description)
-        {
-            //var notificationDictionary = new Dictionary<string, string>()
-            //{
-            //    { "{TITLE}", title },
-            //    { "{DESCRIPTION}", description }
-            //};
-
-            //var notificationXML = LoadAndPopulateXMLFile("/Resources/Notification.xml", notificationDictionary);
-            //var toastScheduled = new ScheduledToastNotification(notificationXML, _intervalEnd);
-            //ToastNotificationManager.CreateToastNotifier().AddToSchedule(toastScheduled);
+            StartPauseResumeIcon = "Play";
+            // RevToggleKey, clear, UpdateRestore
         }
     }
 }

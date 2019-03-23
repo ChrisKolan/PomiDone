@@ -63,27 +63,23 @@
                     VerticalAlignment="Top" 
                     ToolTipService.ToolTip="Long break counter"
                     FontSize="48"/>
-                <Button 
-                    x:Name="ButtonStartPauseResumeContent" 
-                    Content="{x:Bind ViewModel.ButtonStartPauseResumeContent, Mode=OneWay}"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Top" 
-                    Height="100" 
-                    Width="250" 
-                    FontSize="48"
-                    Margin="10"
-                    Command="{x:Bind ViewModel.StartPauseResumeClick}">
+                <Button
+                    HorizontalAlignment="Center"
+                    Command="{x:Bind ViewModel.StartPauseResumeClick}"
+                    ToolTipService.ToolTip="Play/Pause"
+                    Margin="10">
+                    <Viewbox Height="70" Width="250">
+                        <SymbolIcon Symbol="{x:Bind ViewModel.StartPauseResumeIcon, Mode=OneWay}"/>
+                    </Viewbox>
                 </Button>
-                <Button 
-                    x:Name="button" 
-                    Content="Reset"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Top" 
-                    Height="100" 
-                    Width="250" 
-                    FontSize="48"
-                    Margin="10"
-                    Command="{x:Bind ViewModel.ResetClick}">
+                <Button
+                    HorizontalAlignment="Center"
+                    Command="{x:Bind ViewModel.ResetClick}"
+                    ToolTipService.ToolTip="Reset"
+                    Margin="10">
+                    <Viewbox Height="70" Width="250">
+                        <SymbolIcon Symbol="Clear"/>
+                    </Viewbox>
                 </Button>
             </StackPanel>
         </Grid>

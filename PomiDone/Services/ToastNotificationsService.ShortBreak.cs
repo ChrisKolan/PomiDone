@@ -27,7 +27,7 @@ namespace PomiDone.Services
 
                             new AdaptiveText()
                             {
-                                Text = @"Take a short break :)"
+                                Text = @"Take a short break"
                             }
                         }
                     }

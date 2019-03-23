@@ -27,7 +27,7 @@ namespace PomiDone.Services
 
                             new AdaptiveText()
                             {
-                                Text = @"You may start working on the task again."
+                                Text = @"You may start working on the task again"
                             }
                         }
                     }

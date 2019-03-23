@@ -162,7 +162,7 @@
     <comment>About this application title for Settings</comment>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>This application uses the pomdoro technique to keep you focused on the task you are working on. Press start button on PomiDone page and be really productive today :)</value>
+    <value>This application uses the pomdoro technique to keep you focused on the task you are working on. Press play button on PomiDone page and become really productive today.</value>
     <comment>About this application description for Settings</comment>
   </data>
   <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">
