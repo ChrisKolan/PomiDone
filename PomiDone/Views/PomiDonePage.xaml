@@ -38,30 +38,73 @@
                     Maximum="{x:Bind ViewModel.ProgressMaximum, Mode=OneWay}"
                     IsIndeterminate="True"
                     Foreground="Green"/>
-                <TextBlock 
-                    x:Name="WorkTimerTextBlock" 
-                    Text="{x:Bind ViewModel.WorkTimerTextBlock, Mode=OneWay}" 
-                    HorizontalAlignment="Center" 
-                    TextWrapping="Wrap" 
-                    VerticalAlignment="Top" 
-                    ToolTipService.ToolTip="Task counter"
-                    FontSize="48"/>
-                <TextBlock 
-                    x:Name="ShortTimerTextBlock" 
-                    Text="{x:Bind ViewModel.ShortTimerTextBlock, Mode=OneWay}" 
-                    HorizontalAlignment="Center" 
-                    TextWrapping="Wrap" 
-                    VerticalAlignment="Center"
-                    ToolTipService.ToolTip="Short break counter"
-                    FontSize="48"/>
-                <TextBlock 
-                    x:Name="LongTimerTextBlock" 
-                    Text="{x:Bind ViewModel.LongTimerTextBlock, Mode=OneWay}" 
-                    HorizontalAlignment="Center" 
-                    TextWrapping="Wrap" 
-                    VerticalAlignment="Top" 
-                    ToolTipService.ToolTip="Long break counter"
-                    FontSize="48"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Completed tasks:" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10"/>
+                    <TextBlock 
+                        Grid.Column="1"
+                        x:Name="WorkTimerTextBlock" 
+                        Text="{x:Bind ViewModel.WorkTimerTextBlock, Mode=OneWay}" 
+                        HorizontalAlignment="Center"
+                        TextWrapping="Wrap" 
+                        VerticalAlignment="Top" 
+                        ToolTipService.ToolTip="Task counter"
+                        Margin="10"
+                        FontSize="48"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Completed short breaks:" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10"/>
+                    <TextBlock 
+                        Grid.Column="1"
+                        x:Name="ShortTimerTextBlock" 
+                        Text="{x:Bind ViewModel.ShortTimerTextBlock, Mode=OneWay}" 
+                        HorizontalAlignment="Center"
+                        TextWrapping="Wrap" 
+                        VerticalAlignment="Center"
+                        ToolTipService.ToolTip="Short break counter"
+                        FontSize="48"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Completed long breaks:" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10"/>
+                    <TextBlock 
+                        Grid.Column="1"
+                        x:Name="LongTimerTextBlock" 
+                        Text="{x:Bind ViewModel.LongTimerTextBlock, Mode=OneWay}" 
+                        HorizontalAlignment="Center"
+                        TextWrapping="Wrap" 
+                        VerticalAlignment="Top" 
+                        ToolTipService.ToolTip="Long break counter"
+                        FontSize="48"/>
+                </Grid>
+                
+                
                 <Button
                     HorizontalAlignment="Center"
                     Command="{x:Bind ViewModel.StartPauseResumeClick}"
