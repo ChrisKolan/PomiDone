@@ -269,7 +269,10 @@ namespace PomiDone.ViewModels
             {
                 StartPauseResumeIcon = "Pause";
                 if (_currentTaskStored != null)
+                {
                     CurrentTask = _currentTaskStored;
+                    StopResetButtonVisibility = Visibility.Collapsed;
+                }
                 else
                 {
                     CurrentTask = "Task";
@@ -297,6 +300,7 @@ namespace PomiDone.ViewModels
             ProgressMaximum = _timeSpan * 60;
             CurrentTask = "Resetting...";
             StartPauseResumeIcon = "Play";
+            _currentTaskStored = null;
             StopResetButtonVisibility = Visibility.Collapsed;
         }
     }
