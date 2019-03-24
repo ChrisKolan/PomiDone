@@ -92,6 +92,7 @@
                     VerticalAlignment="Stretch"
                     HorizontalAlignment="Stretch"
                     Content="Store timer settings"
+                    Style="{StaticResource ButtonRevealStyle}"
                     ToolTipService.ToolTip="Storing timer settings restarts the application for the changes to take effect."
                     Command="{x:Bind ViewModel.StoreSettings}">
                 </Button>
