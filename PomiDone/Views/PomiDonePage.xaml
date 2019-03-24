@@ -66,6 +66,7 @@
                     HorizontalAlignment="Center"
                     Command="{x:Bind ViewModel.StartPauseResumeClick}"
                     ToolTipService.ToolTip="Play/Pause"
+                    Style="{StaticResource ButtonRevealStyle}"
                     Margin="10">
                     <Viewbox Height="70" Width="250">
                         <SymbolIcon Symbol="{x:Bind ViewModel.StartPauseResumeIcon, Mode=OneWay}"/>
@@ -75,6 +76,7 @@
                     HorizontalAlignment="Center"
                     Command="{x:Bind ViewModel.ResetClick}"
                     ToolTipService.ToolTip="Stop and reset"
+                    Style="{StaticResource ButtonRevealStyle}"
                     Margin="10">
                     <Viewbox Height="70" Width="250">
                         <SymbolIcon Symbol="Stop"/>
