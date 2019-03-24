@@ -20,7 +20,7 @@
                     TextWrapping="Wrap" 
                     VerticalAlignment="Top"
                     Margin="10"
-                    FontSize="48">
+                    FontSize="88">
                 </TextBlock>
                 <TextBlock 
                     x:Name="CurrentTaskBlock" 
@@ -44,30 +44,57 @@
                     HorizontalAlignment="Center" 
                     TextWrapping="Wrap" 
                     VerticalAlignment="Top" 
-                    ToolTipService.ToolTip="Task counter"
+                    ToolTipService.ToolTip="Completed tasks"
                     FontSize="48"/>
+                <TextBlock 
+                    x:Name="TaskTextBlock" 
+                    Text="Completed tasks" 
+                    HorizontalAlignment="Center" 
+                    TextWrapping="Wrap" 
+                    VerticalAlignment="Top"
+                    Margin="0,0,0,0"
+                    FontSize="24">
+                </TextBlock>
                 <TextBlock 
                     x:Name="ShortTimerTextBlock" 
                     Text="{x:Bind ViewModel.ShortTimerTextBlock, Mode=OneWay}" 
                     HorizontalAlignment="Center" 
                     TextWrapping="Wrap" 
                     VerticalAlignment="Center"
-                    ToolTipService.ToolTip="Short break counter"
+                    ToolTipService.ToolTip="Completed short breaks"
                     FontSize="48"/>
+                <TextBlock 
+                    x:Name="ShortBreakTextBlock" 
+                    Text="Completed short breaks" 
+                    HorizontalAlignment="Center" 
+                    TextWrapping="Wrap" 
+                    VerticalAlignment="Top"
+                    Margin="0,0,0,0"
+                    FontSize="24">
+                </TextBlock>
                 <TextBlock 
                     x:Name="LongTimerTextBlock" 
                     Text="{x:Bind ViewModel.LongTimerTextBlock, Mode=OneWay}" 
                     HorizontalAlignment="Center" 
                     TextWrapping="Wrap" 
                     VerticalAlignment="Top" 
-                    ToolTipService.ToolTip="Long break counter"
+                    ToolTipService.ToolTip="Completed long breaks"
                     FontSize="48"/>
+                <TextBlock 
+                    x:Name="LongBreaksTextBlock" 
+                    Text="Completed long breaks" 
+                    HorizontalAlignment="Center" 
+                    TextWrapping="Wrap" 
+                    VerticalAlignment="Top"
+                    Margin="0,0,0,0"
+                    FontSize="24">
+                </TextBlock>
                 <Button
                     HorizontalAlignment="Center"
                     Command="{x:Bind ViewModel.StartPauseResumeClick}"
                     ToolTipService.ToolTip="Play/Pause"
                     Style="{StaticResource ButtonRevealStyle}"
-                    Margin="10">
+                    Margin="20">
                     <Viewbox Height="70" Width="65">
                         <SymbolIcon Symbol="{x:Bind ViewModel.StartPauseResumeIcon, Mode=OneWay}"/>
                     </Viewbox>
