@@ -79,8 +79,8 @@ namespace PomiDone.Services
             await ThemeSelectorService.SetRequestedThemeAsync();
             await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
             // Singleton<LiveTileService>.Instance.SampleUpdate();
-            FirstRunDisplayService.ShowIfAppropriate();
-            await WhatsNewDisplayService.ShowIfAppropriateAsync();
+            // FirstRunDisplayService.ShowIfAppropriate();
+            // await WhatsNewDisplayService.ShowIfAppropriateAsync();
         }
 
         private IEnumerable<ActivationHandler> GetActivationHandlers()
