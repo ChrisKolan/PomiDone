@@ -75,6 +75,7 @@
                 <Button
                     HorizontalAlignment="Center"
                     Command="{x:Bind ViewModel.ResetClick}"
+                    Visibility="{x:Bind ViewModel.StopResetButtonVisibility, Mode=OneWay}"
                     ToolTipService.ToolTip="Stop and reset"
                     Style="{StaticResource ButtonRevealStyle}"
                     Margin="10">

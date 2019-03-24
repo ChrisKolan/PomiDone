@@ -5,6 +5,7 @@ using PomiDone.Helpers;
 using PomiDone.Services;
 using Windows.ApplicationModel.ExtendedExecution;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 
 namespace PomiDone.ViewModels
 {
@@ -31,6 +32,7 @@ namespace PomiDone.ViewModels
         private string _currentTask;
         private string _currentTaskStored;
         private string _startPauseResumeIcon;
+        public Visibility _stopResetButtonVisibility;
 
         public PomiDoneViewModel()
         {
@@ -42,11 +44,19 @@ namespace PomiDone.ViewModels
             _timeSpan = _workTimerTimeSpanInMinutes;
             StartPauseResumeIcon = "Play";
             ProgressMaximum = _timeSpan * 60;
+            StopResetButtonVisibility = Visibility.Collapsed;
             BeginExtendedExecution();
         }
 
         public RelayCommand StartPauseResumeClick { get; set; }
         public RelayCommand ResetClick { get; set; }
+
+        public Visibility StopResetButtonVisibility 
+        {
+            get { return _stopResetButtonVisibility; }
+
+            set { Set(ref _stopResetButtonVisibility, value); }
+        }
 
         public string StartPauseResumeIcon
         {
@@ -261,12 +271,16 @@ namespace PomiDone.ViewModels
                 if (_currentTaskStored != null)
                     CurrentTask = _currentTaskStored;
                 else
+                {
                     CurrentTask = "Task";
+                    StopResetButtonVisibility = Visibility.Collapsed;
+                }
             }
             else
             {
                 StartPauseResumeIcon = "Play";
                 CurrentTask = "Pausing...";
+                StopResetButtonVisibility = Visibility.Visible;
             }
         }
 
@@ -283,7 +297,7 @@ namespace PomiDone.ViewModels
             ProgressMaximum = _timeSpan * 60;
             CurrentTask = "Resetting...";
             StartPauseResumeIcon = "Play";
-            // RevToggleKey, clear, UpdateRestore
+            StopResetButtonVisibility = Visibility.Collapsed;
         }
     }
 }
