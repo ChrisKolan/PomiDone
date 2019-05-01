@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio" IgnorableNamespaces="uap mp genTemplate">
-  <Identity Name="PomiDone" Publisher="CN=3E2AFD3C-B85E-4DF1-9E91-B594EB72A06F" Version="1.0.21.0" />
-  <mp:PhoneIdentity PhoneProductId="54eb1bec-6118-43fe-999e-237864dd2e18" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="51ChrisKolann.PomiDone" Publisher="CN=3E2AFD3C-B85E-4DF1-9E91-B594EB72A06F" Version="1.0.23.0" />
+  <mp:PhoneIdentity PhoneProductId="f520fb9c-3dad-4fe7-94e8-0267dd680206" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>PomiDone</DisplayName>
     <PublisherDisplayName>Chris Kolan</PublisherDisplayName>
